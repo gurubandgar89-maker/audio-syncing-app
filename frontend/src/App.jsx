@@ -8,8 +8,8 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // 🔥 UPDATE THIS WITH YOUR RENDER BACKEND URL
-  const API_URL = "https://your-backend.onrender.com/api/transcribe";
+  // ✅ Your real backend URL
+  const API_URL = "https://audio-syncing-app.onrender.com/api/transcribe";
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -25,6 +25,7 @@ const App = () => {
 
     setLoading(true);
     setError("");
+
     const formData = new FormData();
     formData.append("file", file);
 
@@ -68,6 +69,7 @@ const App = () => {
 
       <div className="transcription-box">
         <h2>📄 Transcription Output</h2>
+
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         {!error && !loading && segments.length > 0 && (
