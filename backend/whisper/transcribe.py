@@ -8,7 +8,7 @@ if len(sys.argv) < 2:
 
 audio_path = sys.argv[1]
 
-model = whisper.load_model("base")  # "tiny" for faster, "base" for better accuracy
+model = whisper.load_model("tiny")  # REQUIRED for Render free plan
 result = model.transcribe(audio_path, word_timestamps=True)
 
 segments = []

@@ -25,7 +25,7 @@ app.post("/api/transcribe", upload.single("file"), (req, res) => {
   console.log("🟢 Received file:", filePath);
 
   // Run Whisper Python script
-  const command = `python ./whisper/transcribe.py "${filePath}"`;
+  const command = `python3 ./whisper/transcribe.py "${filePath}"`;
   console.log("Running:", command);
 
   exec(command, (error, stdout, stderr) => {
