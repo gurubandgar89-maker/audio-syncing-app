@@ -8,6 +8,9 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // 🔥 UPDATE THIS WITH YOUR RENDER BACKEND URL
+  const API_URL = "https://your-backend.onrender.com/api/transcribe";
+
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     setSegments([]);
@@ -26,8 +29,7 @@ const App = () => {
     formData.append("file", file);
 
     try {
-      // ✅ Backend API endpoint
-      const res = await axios.post("http://localhost:5000/api/transcribe", formData, {
+      const res = await axios.post(API_URL, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
